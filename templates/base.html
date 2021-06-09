@@ -24,7 +24,7 @@
   <link rel="stylesheet" href="{% static 'css/owl.theme.default.min.css' %}">
   <link rel="stylesheet" href="{% static 'css/owl.theme.default.min.css' %}">
 
-  <link rel="stylesheet" href="{% static 'css/jquery.fancybox.mi' %}n.css' %}">
+  <link rel="stylesheet" href="{% static 'css/jquery.fancybox.min.css' %}">
 
   <link rel="stylesheet" href="{% static 'css/bootstrap-datepicker.css' %}">
 
@@ -38,8 +38,7 @@
 
 
 </head>
-
-<body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
+  <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
 
   <div class="site-wrap">
 
@@ -54,11 +53,11 @@
 
 
     
-    <div class="header-top">
-      <div class="container">
+    <div class="header-top bg-info">
+      <div class="container bg-white">
         <div class="row align-items-center">
           <div class="col-12 col-lg-6 d-flex">
-            <a href="index.html" class="site-logo">
+            <a href="{% url 'home' %}" class="site-logo" style="color:lightblue">
               SpaceBlog
             </a>
 
@@ -91,28 +90,31 @@
 
 
       
-      <div class="site-navbar py-2 js-sticky-header site-navbar-target d-none pl-0 d-lg-block" role="banner">
+      <div class="site-navbar py-2 js-sticky-header site-navbar-target d-none pl-0 d-lg-block bg-white" role="banner">
 
-      <div class="container">
+      <div class="container bg-info ">
         <div class="d-flex align-items-center">
           
           <div class="mr-auto">
             <nav class="site-navigation position-relative text-right" role="navigation">
               <ul class="site-menu main-menu js-clone-nav mr-auto d-none pl-0 d-lg-block">
                 <li class="active">
-                  <a href="{% url 'home' %}" class="nav-link text-left">Home</a>
+                    <a href="{% url 'home' %}" class="nav-link text-left">Home</a>
                 </li>
                 <li>
-                  <a href="{% url 'about' %}" class="nav-link text-left">About</a>
+                  <a href="{% url 'about' %}" class="nav-link text-left ">About</a>
                 </li>
               
                 <li><a href="{% url 'contact' %}" class="nav-link text-left">Contact</a></li>
                {% if user.is_authenticated %}
 
-                <li><a href="{% url 'logout' %}" class="nav-link text-right text-info">Logout</a></li>
-                {% else %}
-                <li><a href="{% url 'login' %}" class="nav-link text-right text-info">Login</a></li>
-                <li><a href="{% url 'register' %}" class="nav-link text-right text-info">Register</a></li>
+                <a class="nav-link dropdown-toggle " href='#' id="navbarDropdown" role="button" data-toggle="dropdown" style="color:white;"> Welcome {{request.user}}</a>
+                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="{% url 'logout' %}">Logout</a>
+                  </div>
+               {% else %}
+                <li><a href="{% url 'login' %}" class="nav-link text-right ">Login</a></li>
+                <li><a href="{% url 'register' %}" class="nav-link text-right">Register</a></li>
                 {% endif %}
               </ul>                                                                                                                                                                                                                                                                                         
             </nav>
@@ -128,22 +130,20 @@
     {% block mycss %}
     {% endblock %}
     {% block body %}
-
     {% endblock body %}
 
     
-    <div class="footer" style="background: red; margin-top:auto;">
+    <div class="footer" style="background: #5bc0de !important; ; margin-top:auto;">
       <div class="container">
         
 
         <div class="row">
           <div class="col-12">
             <div class="copyright">
-                <p>
+                <p style="color:white;">
                     <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                    Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart text-danger" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank" >Colorlib</a>
-                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                    </p>
+                    Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved
+                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
             </div>
           </div>
         </div>

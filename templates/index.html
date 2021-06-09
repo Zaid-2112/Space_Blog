@@ -48,8 +48,8 @@
             <div class="row">
               <div class="col-md-6">
                 <div class="post-entry-1">
-                  <a href="post-single.html"><img src="{{author_post.0.thumbnail.url}}" alt="Image" class="img-fluid"></a>
-                  <h2><a href="blog-single.html">{{author_post.0.title}}</a></h2>
+                  <a href="post-singel.html"><img src="{{author_post.0.thumbnail.url}}" alt="Image" class="img-fluid"></a>
+                  <h2><a href="blog-singrl.html">{{author_post.0.title}}</a></h2>
                   <p>{{author_post.0.overview}}</p>
                   <div class="post-meta">
                     <span class="d-block">
@@ -90,7 +90,7 @@
             <div class="trend-entry d-flex">
               <div class="number align-self-start">0{{forloop.counter}}</div>
               <div class="trend-contents">
-                <h2><a href="blog-single.html">{{trend.title}}</a></h2>
+                <h2><a href="{% url 'post' trend.id trend.slug %}">{{trend.title}}</a></h2>
                 <div class="post-meta">
                   <span class="d-block">
                     
@@ -174,7 +174,7 @@
             <div class="trend-entry d-flex">
               <div class="number align-self-start">0{{forloop.counter}}</div>
               <div class="trend-contents">
-                <h2><a href="blog-single.html">{{post.title}}</a></h2>
+                <h2><a href="{% url 'post' post.id post.slug %}">{{post.title}}</a></h2>
                 <div class="post-meta">
                   <span class="d-block">
 

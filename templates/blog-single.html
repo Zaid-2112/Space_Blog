@@ -28,16 +28,10 @@
             <div class="pt-5">
                     <p>Categories:  <a href="#">Design</a>, <a href="#">Events</a>  Tags: <a href="#">#html</a>, <a href="#">#trends</a></p>
                   </div>
-      
-      
-                  <div class="pt-5">
-                    <div class="section-title">
-                      <h2 class="mb-5">6 Comments</h2>
-                    </div>
+
                     {% if user.is_authenticated %}
                 
-                
-                    <ul class="comment-list">
+                       <ul class="comment-list">
                       {% for cm in comments %}
                       <li class="comment">
                         <div class="vcard bio">
@@ -105,9 +99,10 @@
       
                       </form>
                     </div>
-                    {% else %}
-                    <li><a href="{% url 'account_login' %}" class="nav-link text-right text-info">Sign In</a></li>
-                    <li><a href="{% url 'account_signup' %}" class="nav-link text-right text-info">Sign Up</a></li>
+                   {% else %}
+                   <h2 class="pb-3"><strong>You need to be logged in to post a comment!</strong></h2>
+                    <a href="{% url 'login' %}" type="button" class="nav-link text-right btn btn-primary bg-info" style="width: 100px; ">Login</a>
+                   <!-- <li><a href="{% url 'register' %}" class="nav-link text-right">Register</a></li>-->
                     {% endif %}
                   </div>
           </div>
@@ -122,7 +117,7 @@
             <div class="trend-entry d-flex">
               <div class="number align-self-start">0{{forloop.counter}}</div>
               <div class="trend-contents">
-                <h2><a href="blog-single.html">{{post.title}}</a></h2>
+                <h2><a href="{% url 'post' post.id post.slug %}">{{post.title}}</a></h2>
                 <div class="post-meta">
                   <span class="d-block">
 

@@ -75,7 +75,8 @@ DATABASES = {
         'NAME': 'spaceblog',
         'USER': 'postgres',
         'PASSWORD': 'admin',
-        'HOST': 'localhost'
+        'HOST': 'localhost',
+        'PORT': '5432:5432s'
     }
 }
 AUTH_PASSWORD_VALIDATORS = [

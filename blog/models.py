@@ -10,7 +10,7 @@ class subscribe(models.Model):
 	email = models.EmailField()
 
 class Author(models.Model):
-	user = models.OneToOneField(User, on_delete = models.CASCADE)
+	user = models.OneToOneField(User, on_delete=models.CASCADE)
 	rate = models.IntegerField(default=0)
 	def __str__(self):
 		return f'{self.user}'
@@ -21,16 +21,16 @@ class Categorie(models.Model):
 		return self.title
 
 class Post(models.Model):
-	title = models.CharField(max_length = 50)
+	title = models.CharField(max_length=50)
 	overview = models.TextField()
 	slug = models.SlugField(null=True, blank=True)
 	body_text = RichTextUploadingField(null=True)
-	time_upload = models.DateTimeField(auto_now_add = True)
+	time_upload = models.DateTimeField(auto_now_add=True)
 	auther = models.ForeignKey(Author, on_delete=models.CASCADE)
-	thumbnail = models.ImageField(upload_to = 'thumbnails')
+	thumbnail = models.ImageField(upload_to='thumbnails')
 	publish = models.BooleanField()
 	categories = models.ManyToManyField(Categorie)
-	read = models.IntegerField(default = 0)
+	read = models.IntegerField(default=0)
 
 	class Meta:
 		ordering = ['-pk']
@@ -48,7 +48,7 @@ class Contact(models.Model):
 	email = models.EmailField()
 	mob = models.CharField(max_length=12)
 	mess = models.TextField()
-	time = models.DateTimeField(auto_now_add = True)
+	time = models.DateTimeField(auto_now_add=True)
 
 
 class Comment(models.Model):

@@ -12,7 +12,6 @@
                 <span class="caption">{{post.auther.user.username}}</span>
                 <h2><a href="{% url 'post' post.id post.slug %}">{{post.title}}</a></h2>
                 <p class="mb-3">{{post.overview}}</p>
-
                 <div class="post-meta">
                   <span class="d-block">
 
@@ -29,12 +28,9 @@
           </div>
         </div>
         {% endfor %}
-
       </div>
     </div>
-
-
-    <div class="site-section">
+      <div class="site-section">
       <div class="container">
         <div class="row">
           <div class="col-lg-8">
@@ -187,7 +183,6 @@
               </div>
             </div>
             {% endfor %}
-            
             <p>
               <a href="{% url 'view_all' 'popular' %}" class="more">See All Popular <span class="icon-keyboard_arrow_right"></span></a>
             </p>

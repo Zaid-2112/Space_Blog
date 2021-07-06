@@ -1,1 +1,1 @@
-web: gunicorn spaceblog.wsgi
+web: gunicorn Spaceblog.wsgi
